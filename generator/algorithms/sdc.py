@@ -7,6 +7,7 @@ from typing import Tuple
 
 import numpy as np
 
+
 def select(points: np.ndarray,
            *,
            image_shape: Tuple[int, int],
@@ -130,7 +131,7 @@ def circular_mask(array_shape: Tuple[int, int],
     :return: boolean array with applied circular mask
     """
     y, x = np.ogrid[-center[0]:array_shape[0] - center[0],
-                    -center[1]:array_shape[1] - center[1]]
+           -center[1]:array_shape[1] - center[1]]
     return x * x + y * y <= radius * radius
 
 

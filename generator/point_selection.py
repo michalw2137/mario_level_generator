@@ -6,13 +6,13 @@ import numpy as np
 def get_non_air(map_data, np_array=True):
     non_air = np.empty((0, 2), int) if np_array else []
 
-    for c in range(map_data.n_cols):
-        for r in range(map_data.n_rows):
-            if map_data.get(r, c) != "-":
+    for column_id in range(map_data.n_cols):
+        for row_id in range(map_data.n_rows):
+            if map_data.get(row_id, column_id) != "-":
                 if np_array:
-                    non_air = np.append(non_air, np.array([[r, c]]), axis=0)
+                    non_air = np.append(non_air, np.array([[row_id, column_id]]), axis=0)
                 else:
-                    non_air.append((r, c))
+                    non_air.append((row_id, column_id))
     return non_air
 
 
@@ -59,7 +59,9 @@ def spaced_selection(map_data, N=3, D=3):
                 pop.remove(pop[i])
 
     selected_points = []
+
     import numpy as np
+
     while len(selected_points) < N and len(pop_d) > 0:
         index = np.random.choice(len(pop_d), 1, p=pop_d)[0]
         r, c = pop[index]

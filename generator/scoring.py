@@ -36,9 +36,9 @@ def get_enemy_density(level, start_col=0, end_col=0):
 
 def create_level(structures):
     level = Level()
-    for str in structures:
-        for n in str.nodes:
-            level.set(n.r, n.c, n.tile)
+    for structure in structures:
+        for node in structure.nodes:
+            level.set(node.r, node.c, node.tile)
     return level
 
 
@@ -51,16 +51,20 @@ def get_density_score(structures, d=3, l=14):
     logger.debug("Number of columns: {}".format(level.n_cols))
     logger.debug("Scenes in the level: \n{}".format(intervals))
 
-    enemies = []
+    enemy_denisities = []
     for start_col, end_col in intervals:
-        enemies.append(get_enemy_density(level, start_col, end_col))
+        enemy_denisities.append(get_enemy_density(level, start_col, end_col))
 
-    logger.debug("Enemies on each interval: \n{}".format(enemies))
-    enemies = [(abs(i - d)) for i in enemies]
-    score = sum(enemies)
+    logger.debug("Enemies on each interval: \n{}".format(enemy_denisities))
+
+    # different calculation
+    enemy_denisities = [(abs(density - d)) for density in enemy_denisities]
+    score = sum(enemy_denisities)
     logger.debug("Score: {}".format(score))
+
+#    logger.debug("Enemies found on each interval: \n{}".format(enemy_denisities))
+
     return score
-    logger.debug("Enemies found on each interval: \n{}".format(enemies))
 
 
 def get_increasing_density_score(structures, d=2, l=14):
@@ -72,28 +76,32 @@ def get_increasing_density_score(structures, d=2, l=14):
     logger.debug("Number of columns: {}".format(level.n_cols))
     logger.debug("Scenes in the level: \n{}".format(intervals))
 
-    enemies = []
+    enemy_densities = []
     for start_col, end_col in intervals:
-        enemies.append(get_enemy_density(level, start_col, end_col))
+        enemy_densities.append(get_enemy_density(level, start_col, end_col))
 
-    logger.debug("Enemies on each interval: \n{}".format(enemies))
-    enemies = [(abs(n - (d * i))) for i, n in zip(range(len(enemies)), enemies)]
-    logger.debug("After processing: \n{}".format(enemies))
-    score = sum(enemies)
+    logger.debug("Enemies on each interval: \n{}".format(enemy_densities))
+
+    # different calculation
+    enemy_densities = [(abs(density - (d * i))) for i, density in zip(range(len(enemy_densities)), enemy_densities)]
+    logger.debug("After processing: \n{}".format(enemy_densities))
+    score = sum(enemy_densities)
     logger.debug("Score: {}".format(score))
+
+#    logger.debug("Enemies found on each interval: \n{}".format(enemy_densities))
+
     return score
-    logger.debug("Enemies found on each interval: \n{}".format(enemies))
 
 
-def get_platforms(level):
+def get_platforms_count(level):
     platform_nodes = 0
-    for n in level.nodes:
-        if n.tile == "X":
+    for node in level.nodes:
+        if node.tile == "X":
             platform_nodes += 1
     return platform_nodes
 
 
-def get_enemies(level):
+def get_enemies_count(level):
     enemy_nodes = 0
     for n in level.nodes:
         if n.tile in constants.enemy_tiles:

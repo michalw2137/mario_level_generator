@@ -176,7 +176,7 @@ def generate_structures(graph_map, connecting_nodes):
         for c in range(len(graph_map[r])):
             n = graph_map[r][c]
 
-            if n != None:
+            if n is not None:
                 if n[1] not in structures.keys():
                     structures[n[1]] = Structure(n[1])
 

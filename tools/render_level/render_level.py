@@ -2,7 +2,7 @@ import optparse
 import os
 import sys
 
-from pil import Image
+from PIL import Image
 
 
 # from PIL import Image

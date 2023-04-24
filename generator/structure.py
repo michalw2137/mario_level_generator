@@ -90,20 +90,20 @@ class Structure:
     def matrix_representation(self):
         generated = Level(" ")
 
-        for n in self.nodes:
-            generated.set(n.r, n.c, n.tile)
+        for node in self.nodes:
+            generated.set(node.r, node.c, node.tile)
         directions = {"r": ">", "l": "<", "u": "^", "d": "v"}
-        for n in self.connecting:
-            generated.set(n.r, n.c, directions[n.direction])
+        for connector in self.connecting:
+            generated.set(connector.r, connector.c, directions[connector.direction])
 
         return generated.matrix_representation()
 
     def level_representation(self, filler=True):
         # 1: find the highest column values
         highest_column = 0
-        for n in self.nodes + self.connecting:
-            if n.c > highest_column:
-                highest_column = n.c
+        for node in self.nodes + self.connecting:
+            if node.c > highest_column:
+                highest_column = node.c
 
         # 2: create a matrix with [16][n_columns]
         base_tile = "-" if filler else " "
@@ -115,10 +115,10 @@ class Structure:
         # 4: iterate over all nodes and place tiles in
         # the appropriate locations in the matrix
         directions = {"r": ">", "l": "<", "u": "^", "d": "v"}
-        for n in self.nodes:
-            level[n.r][n.c] = n.tile
-        for n in self.connecting:
-            level[n.r][n.c] = directions[n.direction]
+        for node in self.nodes:
+            level[node.r][node.c] = node.tile
+        for node in self.connecting:
+            level[node.r][node.c] = directions[node.direction]
 
         # 5: return the matrix, to be used in render_level
         return level
