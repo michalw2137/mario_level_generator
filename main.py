@@ -14,12 +14,12 @@ import logging
 import logging.handlers
 
 # uncomment for truncated file
-# filehandler = log.TruncatedFileHandler("output/log", "w", 9000000)
+# filehandler = log.log.TruncatedFileHandler("output/log.log", "w", 9000000)
 # logging.basicConfig(
 # format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
 #    level=logging.DEBUG, handlers=[filehandler])
 
-logging.basicConfig(filename="output/log",
+logging.basicConfig(filename="output/log.log",
                     level=logging.INFO,
                     filemode='w')
 

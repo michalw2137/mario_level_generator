@@ -1,0 +1,500 @@
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_0.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 2, 2, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -19.666666666666664
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_1.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -17.166666666666668
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_10.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -22.166666666666668
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_11.txt
+[DEBUG]: level_analysis.py:52: gaps:[6, 1, 2, 12, 1, 2, 2, 6, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -14.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_12.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -21.166666666666668
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_13.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 6, 1, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -15.333333333333336
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_14.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -32.833333333333336
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_15.txt
+[DEBUG]: level_analysis.py:52: gaps:[3]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -20.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_16.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -15.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_17.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 6, 2, 2, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -21.333333333333336
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_18.txt
+[DEBUG]: level_analysis.py:52: gaps:[6, 3, 1, 1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -23.1
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_19.txt
+[DEBUG]: level_analysis.py:52: gaps:[18, 2, 2, 12, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -16.7
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_2.txt
+[DEBUG]: level_analysis.py:52: gaps:[12, 2, 2, 12, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -20.166666666666668
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_20.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 3, 2, 6, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -11.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_21.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 1, 2, 6, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -19.333333333333336
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_22.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 1, 2, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -12.9
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_23.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 1, 2, 1, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -18.7
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_24.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 1, 2, 6, 2, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'k', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -13.125
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_25.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 2, 12, 6, 2, 12, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -17.25
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_26.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 1, 2, 6, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -11.785714285714285
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_27.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 2, 12, 1, 2, 6, 2, 2, 2, 1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -10.833333333333334
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_28.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 6, 2, 2, 2, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -24.375
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_29.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 1, 2, 6, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'k', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -10.166666666666666
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_3.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -22.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_30.txt
+[DEBUG]: level_analysis.py:52: gaps:[6, 2, 1, 2, 3, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -16.785714285714285
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_31.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -9.75
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_32.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 18, 2, 1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -21.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_33.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 6, 2, 2, 1, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -9.928571428571429
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_34.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 2, 2, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'k', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -13.666666666666664
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_35.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 6, 2, 6, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -20.333333333333336
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_36.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -14.833333333333332
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_37.txt
+[DEBUG]: level_analysis.py:52: gaps:[18, 2, 2, 6, 1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -16.166666666666668
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_38.txt
+[DEBUG]: level_analysis.py:52: gaps:[12, 2, 2, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'k', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -21.3
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_39.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 1, 2, 6, 2, 6, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -19.214285714285715
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_4.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 6, 2, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g', 'g', 'k', 'k', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -17.9
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_40.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 2, 2, 6, 2, 2, 1, 2, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -21.68181818181818
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_41.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 2, 6, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -19.1
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_42.txt
+[DEBUG]: level_analysis.py:52: gaps:[6, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -27.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_43.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -20.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_44.txt
+[DEBUG]: level_analysis.py:52: gaps:[12, 2, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'k', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -28.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_45.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 1, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'k', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -12.25
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_46.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'k', 'k', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -14.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_47.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 2, 18, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -23.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_48.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -17.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_49.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 6, 2, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -13.333333333333334
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_5.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 18, 2, 12, 2, 6, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -17.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_50.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 12]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -23.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_51.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 2, 6, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -20.9
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_52.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 12, 2, 1, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -18.357142857142858
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_53.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 6, 2, 2, 18, 2, 12]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -18.785714285714285
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_54.txt
+[DEBUG]: level_analysis.py:52: gaps:[6, 2, 1, 6, 2, 12, 3]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -26.07142857142857
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_55.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 2, 1, 1, 1, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -18.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_56.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 6, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -21.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_57.txt
+[DEBUG]: level_analysis.py:52: gaps:[]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'k', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -12.0
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_58.txt
+[DEBUG]: level_analysis.py:52: gaps:[18, 2, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -14.75
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_59.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 6, 2, 2, 6, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'k', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -18.166666666666664
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_6.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 12, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -19.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_60.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 1, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -15.9
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_61.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 2, 2, 6, 1, 2, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -17.61111111111111
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_62.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 2, 1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -20.1
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_63.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -12.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_64.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 6, 2, 1, 2, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -24.357142857142858
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_65.txt
+[DEBUG]: level_analysis.py:52: gaps:[18, 2, 2, 2, 12, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -18.214285714285715
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_66.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 6, 6, 2, 2, 12]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -12.92857142857143
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_67.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -17.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_68.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 6, 2, 1, 1, 2, 2, 6, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -22.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_69.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -16.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_7.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 2, 12, 2, 2, 12, 2, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -14.899999999999999
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_70.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 6, 2, 6, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -28.9
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_71.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 18, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -21.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_72.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -16.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_73.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -25.25
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_74.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 6, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -18.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_75.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 6, 3, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -21.3
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_76.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 24, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -17.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_77.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -14.25
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_78.txt
+[DEBUG]: level_analysis.py:52: gaps:[6, 2, 1, 1, 2, 2, 3]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -10.928571428571429
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_79.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 12, 2, 1, 2, 1, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -17.875
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_8.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 2, 1, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -22.666666666666668
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_80.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 6, 2, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -23.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_81.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 6, 1, 6, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -23.833333333333336
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_82.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -15.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_83.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 6, 2, 1, 2, 2, 2, 6, 2, 6, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -28.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_84.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 1, 1, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -17.333333333333336
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_85.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -19.0
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_86.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 1, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -24.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_87.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 18, 3, 2, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -21.7
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_88.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 6, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -14.75
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_89.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -16.833333333333332
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_9.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 1, 2, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@']
+[INFO]: level_analysis.py:69: leniency = -21.9
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_90.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 1, 2, 6, 1, 2, 2, 2, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'k', 'k', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -14.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_91.txt
+[DEBUG]: level_analysis.py:52: gaps:[6, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'k', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -21.0
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_92.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 2, 6, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'k', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -12.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_93.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -23.5
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_94.txt
+[DEBUG]: level_analysis.py:52: gaps:[6, 1, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'k', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -11.166666666666666
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_95.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 2, 6, 1, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -13.333333333333334
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_96.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: []
+[INFO]: level_analysis.py:69: leniency = -13.166666666666668
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_97.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 1, 1, 2, 6]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k']
+[DEBUG]: level_analysis.py:54: powerups: ['@']
+[INFO]: level_analysis.py:69: leniency = -18.9
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_98.txt
+[DEBUG]: level_analysis.py:52: gaps:[2, 12, 2, 6, 2, 2, 1]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'k', 'k', 'g', 'g', 'g', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -12.357142857142858
+[INFO]: level_analysis.py:118: Analyzing ../samples/no_overlap/levels\level_99.txt
+[DEBUG]: level_analysis.py:52: gaps:[1, 2, 12, 1, 12, 2]
+[DEBUG]: level_analysis.py:53: enemies: ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'k', 'k', 'g']
+[DEBUG]: level_analysis.py:54: powerups: ['@', '@', '@', '@']
+[INFO]: level_analysis.py:69: leniency = -19.0

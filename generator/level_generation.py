@@ -7,7 +7,11 @@ from .scoring import get_density_score, get_increasing_density_score
 from .structure import Structure, Node, Connector
 from .level import Level
 
+import new_logs
+from new_logs import my_loggers
+
 logger = logging.getLogger(__name__)
+test_logger = logging.getLogger("logger")
 
 
 def print_level(structures):
@@ -26,6 +30,7 @@ def backtrack(structures):
 
     for connector in removed_structure.connecting:
         logger.info("Clearing connectors associated with structure {}".format(removed_structure.id))
+        test_logger.info("siku kupa pierd")
         if connector.combined != None:
             structure1, c1 = connector.combined
             c1.combined = None
@@ -224,7 +229,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
             check_connectors(level)
             collides = has_collision(level, True)
             substitutions = available_substitutions(level)
-            # density = get_density_score(level, 2)
+            density = get_density_score(level, 2)
 
             if len(substitutions) <= 0 or collides:
                 if len(substitutions) <= 0: logger.info(

@@ -3,7 +3,7 @@ import logging
 import logging.handlers
 
 
-# use this to set a size limit for the log file
+# use this to set a size limit for the log.log file
 # Author: logc
 # Source: https://stackoverflow.com/questions/24157278/limit-python-log-file
 class TruncatedFileHandler(logging.handlers.RotatingFileHandler):
