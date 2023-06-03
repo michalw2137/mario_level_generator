@@ -8,6 +8,7 @@ from glob import glob
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
 
+LINE_HEIGHT: [int] = 2
 
 def get_gaps(level_data: list[str]) -> list[int]:
     """
@@ -49,10 +50,6 @@ def calculate_leniency(level_data: list[str]) -> float:
     enemies = get_tiles(level_data, enemy_tiles)
     powerups = get_tiles(level_data, powerup_tiles)
 
-    logger.debug(f"gaps:{gaps}")
-    logger.debug(f"enemies: {enemies}")
-    logger.debug(f"powerups: {powerups}")
-
     gaps_count = len(gaps)
     average_gap = 0
     if not len(gaps) == 0:
@@ -61,10 +58,19 @@ def calculate_leniency(level_data: list[str]) -> float:
     powerups_count = len(powerups)
 
     leniency = 0
-    leniency += gaps_count * -0.5
-    leniency += average_gap * -1
-    leniency += enemies_count * -1
-    leniency += powerups_count * 1
+    leniency += gaps_count * 0.5
+    leniency += average_gap * 1
+    leniency += enemies_count * 1
+    leniency += powerups_count * -1
+
+    logger.debug(f"gaps:{gaps}")
+    logger.debug(f"enemies: {enemies}")
+    logger.debug(f"powerups: {powerups}")
+
+    logger.debug(f"[gaps count] 0.5 * {gaps_count} = {0.5 * gaps_count}")
+    logger.debug(f"[average gap] 1 * {average_gap} = {average_gap}")
+    logger.debug(f"[enemies count] 1 * {enemies_count} = {enemies_count}")
+    logger.debug(f"[powerups count] -1 * {powerups_count} = {-powerups_count} ")
 
     logger.info(f"leniency = {leniency}")
 
@@ -88,8 +94,33 @@ def get_max_heights(level_data: list[str]) -> list[int]:
     return max_heights
 
 
+def get_platform_heights(max_heights: list[int]) -> list[int]:
+    """
+        input: array of ints representing the max height in each column
+        output: list of platform heights, consecutive equal heights are considered to be one platform
+        Len of this list is a number of platforms
+    """
+
+    platform_heights = []
+    logger.debug(f"max heights: {max_heights}")
+
+    for i, (height, next_height) in enumerate(zip(max_heights, max_heights[1:])):
+        if height != next_height:
+            platform_heights.append(height)
+            logger.debug(f"platform at height {height}")
+        else:
+            if i == len(max_heights) - 2:
+                logger.debug(f"last tile at height {next_height}")
+                platform_heights.append(next_height)
+
+    return platform_heights
+
+
 def calculate_linearity(max_heights: list[int]):
+    max_heights = get_platform_heights(max_heights)
+
     y = np.array(max_heights)
+    logger.info(f"Max heights: {max_heights}")
     x = np.array(list(range(len(y)))).reshape((-1, 1))
 
     model = LinearRegression().fit(x, y)
@@ -100,6 +131,8 @@ def calculate_linearity(max_heights: list[int]):
     # print(f"slope: {model.coef_}")
 
     y_predict = model.predict(x)
+    logger.info(f"Predicted heights: {y_predict}")
+
     # print(f"predicted: {y_predict}")
 
     diff = 0
@@ -109,12 +142,14 @@ def calculate_linearity(max_heights: list[int]):
     return diff
 
 
-if __name__ == '__main__':
+def plot(path: str, plot_title: str):
     leniencies = []
     linearities = []
-    # for filename in glob("../samples/overlap/levels/*.txt", recursive=False):
-    for filename in glob("../samples/no_overlap/levels/*.txt", recursive=False):
+    for filename in glob(path, recursive=False):
+        # for filename in glob("../samples/no_overlap/levels/*.txt", recursive=False):
         # for filename in glob("../maps/*.txt", recursive=False):
+        logger.info("")
+        logger.info("")
         logger.info(f"Analyzing {filename}")
         level = parse_file(filename)
 
@@ -128,9 +163,18 @@ if __name__ == '__main__':
     y = normalised_leniencies[0]
     x = normalised_linearities[0]
 
-    print(x)
-    print(y)
+    # print(x)
+    # print(y)
 
+    plt.plot(0, 0, 'w.')
+    plt.plot(1, 1, 'w.')
     plt.plot(x, y, 'o')
 
+    plt.xlabel(plot_title)
+
     plt.show()
+
+
+if __name__ == '__main__':
+    plot("../samples/overlap/levels/*.txt", "overlap")
+    plot("../samples/no_overlap/levels/*.txt", "no_overlap")
