@@ -8,7 +8,8 @@ from glob import glob
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
 
-LINE_HEIGHT: [int] = 2
+LINE_HEIGHT: [int] = 2  # for some reason height closer to 0 produces higher linearity score?
+
 
 def get_gaps(level_data: list[str]) -> list[int]:
     """
@@ -118,6 +119,11 @@ def get_platform_heights(max_heights: list[int]) -> list[int]:
 
 def calculate_linearity(max_heights: list[int]):
     max_heights = get_platform_heights(max_heights)
+
+    # diff: [float] = 0 # TODO: uncomment for different approach to linearity
+    # for height in max_heights:
+    #     diff += abs(height - LINE_HEIGHT)
+    # return diff / len(max_heights)
 
     y = np.array(max_heights)
     logger.info(f"Max heights: {max_heights}")
