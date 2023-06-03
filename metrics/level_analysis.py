@@ -139,7 +139,7 @@ def calculate_linearity(max_heights: list[int]):
     for actual, predicted in zip(y, y_predict):
         diff += abs(actual - predicted)
 
-    return diff
+    return diff / len(max_heights)
 
 
 def plot(path: str, plot_title: str):
