@@ -7,6 +7,7 @@ from new_logs.my_loggers import logger
 from glob import glob
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
+import pandas as pd
 
 LINE_HEIGHT: [int] = 2  # for some reason height closer to 0 produces higher linearity score?
 
@@ -117,8 +118,8 @@ def get_platform_heights(max_heights: list[int]) -> list[int]:
     return platform_heights
 
 
-def calculate_linearity(max_heights: list[int]):
-    max_heights = get_platform_heights(max_heights)
+def calculate_linearity(level_data: list[str]):
+    max_heights = get_platform_heights(get_max_heights(level_data))
 
     # diff: [float] = 0 # TODO: uncomment for different approach to linearity
     # for height in max_heights:
@@ -148,7 +149,7 @@ def calculate_linearity(max_heights: list[int]):
     return diff / len(max_heights)
 
 
-def plot(path: str, plot_title: str):
+def plot(path: str, plot_title: str, data_frame):
     leniencies = []
     linearities = []
     for filename in glob(path, recursive=False):
@@ -160,7 +161,7 @@ def plot(path: str, plot_title: str):
         level = parse_file(filename)
 
         leniencies.append(calculate_leniency(level))
-        linearities.append(calculate_linearity(get_max_heights(level)))
+        linearities.append(calculate_linearity(level))
 
     normalised_leniencies = preprocessing.normalize(np.array([leniencies]), norm='max')
 
@@ -172,6 +173,11 @@ def plot(path: str, plot_title: str):
     # print(x)
     # print(y)
 
+    # data_frame.loc[len(data_frame)] = [path, y, x]
+    data_frame['leniency'] = y
+    data_frame['filename'] = 'huj'
+    data_frame['linearity'] = x
+
     plt.plot(0, 0, 'w.')
     plt.plot(1, 1, 'w.')
     plt.plot(x, y, 'o')
@@ -181,6 +187,21 @@ def plot(path: str, plot_title: str):
     plt.show()
 
 
+generation_times = []
+linearities = []
+leniencies = []
+df = pd.DataFrame(columns=['time', 'leniency', 'linearity'])
+
+
+def save_data():
+    df['time'] = generation_times
+    df['leniency'] = leniencies
+    df['linearity'] = linearities
+    df.to_csv('output/aaaaa.csv', index=False)
+
+
 if __name__ == '__main__':
-    plot("../samples/overlap/levels/*.txt", "overlap")
-    plot("../samples/no_overlap/levels/*.txt", "no_overlap")
+    plot("../samples/overlap/levels/*.txt", "overlap", df)
+    plot("../samples/no_overlap/levels/*.txt", "no_overlap", df)
+
+    save_data()

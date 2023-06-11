@@ -1,6 +1,7 @@
 import sys, os
 import optparse
 import logging
+import time
 from pathlib import Path
 from generator import level_generation
 from generator import structure_identification
@@ -9,6 +10,8 @@ from generator import scoring
 from helper import io
 import numpy as np
 from helper import log
+from metrics.level_analysis import generation_times, leniencies, calculate_leniency, linearities, calculate_linearity, \
+    save_data
 from tools.render_level.render_level import render_structure
 import logging
 import logging.handlers
@@ -203,9 +206,25 @@ if __name__ == '__main__':
 
     for n in range(opt.output_number):
         logging.info("Generating level {}".format(n))
+
+        start_time = time.time()
+
         level, stats, structures_used = level_generation.generate_level(
             structures, g_s, g_f, opt.min_structures)
+
+        duration = time.time() - start_time
+
+        level_data = level.matrix_representation()
+        # print(*level_data, sep='\n')
+
+        generation_times.append(duration)
+        leniencies.append(calculate_leniency(level_data))
+        linearities.append(calculate_linearity(level_data))
+
         level_path = "output/levels/level_{}.txt".format(n)
         print("Rendering level {}".format(n))
         level.save_as_level(level_path)
-        render_structure(level_path, "output/levels/level_{}.png".format(n))
+        # render_structure(level_path, "output/levels/level_{}.png".format(n))
+
+    save_data()
+    # print(generation_times)
