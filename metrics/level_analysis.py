@@ -190,13 +190,19 @@ def plot(path: str, plot_title: str, data_frame):
 generation_times = []
 linearities = []
 leniencies = []
-df = pd.DataFrame(columns=['time', 'leniency', 'linearity'])
+structures_used_list = []
+level_lengths = []
+
+df = pd.DataFrame(columns=['time', 'leniency', 'linearity', 'structures_used', 'level_length'])
 
 
 def save_data(path: str):
     df['time'] = generation_times
     df['leniency'] = leniencies
     df['linearity'] = linearities
+    df['structures_used'] = structures_used_list
+    df['level_length'] = level_lengths
+
     df.to_csv(f'{path}/data_collected.csv', index=False)
 
 

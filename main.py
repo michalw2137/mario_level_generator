@@ -1,20 +1,21 @@
-import sys, os
-import optparse
 import logging
+import logging.handlers
+import optparse
+import os
+import sys
 import time
+from datetime import datetime
 from pathlib import Path
+
+import numpy as np
+
 from generator import level_generation
 from generator import structure_identification
 from generator import structure_matching
-from generator import scoring
 from helper import io
-import numpy as np
-from helper import log
 from metrics.level_analysis import generation_times, leniencies, calculate_leniency, linearities, calculate_linearity, \
-    save_data
+    save_data, structures_used_list, level_lengths
 from tools.render_level.render_level import render_structure
-import logging
-import logging.handlers
 
 # uncomment for truncated file
 # filehandler = log.log.TruncatedFileHandler("output/log.log", "w", 9000000)
@@ -190,9 +191,11 @@ if __name__ == '__main__':
 # Path("output/levels/").mkdir(parents=True, exist_ok=True)
 
     # construct output directory paths
-    prefix = f'n_{opt.n}_d_{opt.d}_m_{opt.min_structures}'
-    structures_output_dir = Path(f"output/{prefix}/structures")
-    levels_output_dir = Path(f"output/{prefix}/levels")
+    current_time = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    output_dir = f"o_{opt.output_number}_n_{opt.n}_d_{opt.d}_m_{opt.min_structures}__{current_time}"
+
+    structures_output_dir = Path(f"output/{output_dir}/structures")
+    levels_output_dir = Path(f"output/{output_dir}/levels")
 
     # create directories if they don't exist
     structures_output_dir.mkdir(parents=True, exist_ok=True)
@@ -229,11 +232,13 @@ if __name__ == '__main__':
         generation_times.append(duration)
         leniencies.append(calculate_leniency(level_data))
         linearities.append(calculate_linearity(level_data))
+        structures_used_list.append(structures_used)
+        level_lengths.append(len(level_data[0]))
 
         level_path = f"{levels_output_dir}/level_{n}.txt"
         print("Rendering level {}".format(n))
         level.save_as_level(level_path)
         # render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
 
-    save_data(f'output/{prefix}')
+    save_data(f'output/{output_dir}')
     # print(generation_times)
