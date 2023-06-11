@@ -193,11 +193,11 @@ leniencies = []
 df = pd.DataFrame(columns=['time', 'leniency', 'linearity'])
 
 
-def save_data():
+def save_data(path: str):
     df['time'] = generation_times
     df['leniency'] = leniencies
     df['linearity'] = linearities
-    df.to_csv('output/aaaaa.csv', index=False)
+    df.to_csv(f'{path}/data_collected.csv', index=False)
 
 
 if __name__ == '__main__':

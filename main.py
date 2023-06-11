@@ -71,7 +71,7 @@ def get_level_paths(opt):
     return levels
 
 
-def load_structures(path="output/structures"):
+def load_structures(path):
     structures = []
     g_s = None
     g_f = None
@@ -88,7 +88,7 @@ def load_structures(path="output/structures"):
     return g_s, g_f, structures
 
 
-def save_structures(g_s, g_f, structures, folder="output/structures"):
+def save_structures(g_s, g_f, structures, folder):
     for s in structures:
         io.save(s, "{}/s_{}".format(folder, s.id))
         render_structure(s.matrix_representation(),
@@ -185,9 +185,18 @@ if __name__ == '__main__':
     opt, args = parse_args(sys.argv[1:])
     sys.setrecursionlimit(10000)  # required for some of the operations
 
-    # make sure the output directory exists, otherwise create it
-    Path("output/structures/").mkdir(parents=True, exist_ok=True)
-    Path("output/levels/").mkdir(parents=True, exist_ok=True)
+# # make sure the output directory exists, otherwise create it
+# Path("output/structures/").mkdir(parents=True, exist_ok=True)
+# Path("output/levels/").mkdir(parents=True, exist_ok=True)
+
+    # construct output directory paths
+    prefix = f'n_{opt.n}_d_{opt.d}_m_{opt.min_structures}'
+    structures_output_dir = Path(f"output/{prefix}/structures")
+    levels_output_dir = Path(f"output/{prefix}/levels")
+
+    # create directories if they don't exist
+    structures_output_dir.mkdir(parents=True, exist_ok=True)
+    levels_output_dir.mkdir(parents=True, exist_ok=True)
 
     data = get_level_paths(opt)
 
@@ -202,7 +211,7 @@ if __name__ == '__main__':
     selected = [s.id for s in structures]
     logging.info("Selected structures: {}".format(selected))
     structure_matching.compute_combinations(structures + [g_s, g_f])
-    save_structures(g_s, g_f, structures)
+    save_structures(g_s, g_f, structures, structures_output_dir)
 
     for n in range(opt.output_number):
         logging.info("Generating level {}".format(n))
@@ -221,10 +230,10 @@ if __name__ == '__main__':
         leniencies.append(calculate_leniency(level_data))
         linearities.append(calculate_linearity(level_data))
 
-        level_path = "output/levels/level_{}.txt".format(n)
+        level_path = f"{levels_output_dir}/level_{n}.txt"
         print("Rendering level {}".format(n))
         level.save_as_level(level_path)
-        # render_structure(level_path, "output/levels/level_{}.png".format(n))
+        # render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
 
-    save_data()
+    save_data(f'output/{prefix}')
     # print(generation_times)
