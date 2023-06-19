@@ -212,6 +212,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
                 try:
                     level = backtrack(level)
                 except IndexError:
+                    print("pop from empty list when substitutions == 0")
                     logger.critical("pop from empty structure list")
                     break
                 substitutions = available_substitutions(level)
@@ -220,13 +221,14 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
 
             str1, c1, str2_id, c2_sub_id = random.choice(substitutions)
             substitutions.remove((str1, c1, str2_id, c2_sub_id))
+
             if str2_id == g_s.id or str2_id == g_f.id:
                 continue
             str2 = copy.deepcopy(original_structures[str2_id])
             c2 = str2.get_connector(c2_sub_id)
 
-            # logger.info("Trying to append structure {} using its connector {} via structure {} with connector {}".format(str2_id, c2, str1.id, c1))
-            # logger.info("\n{}".format(str2.pretty_print()))
+            logger.info("Trying to append structure {} using its connector {} via structure {} with connector {}".format(str2_id, c2, str1.id, c1))
+            logger.info("\n{}".format(str2.pretty_print()))
 
             str2 = prepare(str1, c1, str2, c2)
             level.append(str2)
@@ -246,6 +248,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
                 try:
                     level = backtrack(level)
                 except IndexError:
+                    print("pop from empty list when substitutions <= 0 or collides")
                     logger.critical("pop from empty structure list")
                     break
                 substitutions = available_substitutions(level)

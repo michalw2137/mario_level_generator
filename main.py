@@ -14,7 +14,7 @@ from generator import structure_identification
 from generator import structure_matching
 from helper import io
 from metrics.level_analysis import generation_times, leniencies, calculate_leniency, linearities, calculate_linearity, \
-    save_data, structures_used_list, level_lengths, line_distances, calculate_line_distance
+    save_data, structures_used_list, level_lengths, line_distances, calculate_line_distance, backtrackings
 from tools.render_level.render_level import render_structure
 
 # uncomment for truncated file
@@ -233,6 +233,7 @@ if __name__ == '__main__':
         leniencies.append(calculate_leniency(level_data))
         linearities.append(calculate_linearity(level_data))
         line_distances.append(calculate_line_distance(level_data))
+        backtrackings.append(backtrack_count)
 
         structures_used_list.append(structures_used)
         level_lengths.append(len(level_data[0]))
