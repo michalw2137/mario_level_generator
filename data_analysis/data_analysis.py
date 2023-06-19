@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
-matplotlib.use('TkAgg')  # Set the backend to TkAgg
 
 # Set the Pandas display options to show all columns
 pd.set_option('display.max_columns', None)
@@ -13,7 +12,7 @@ pd.set_option('display.show_dimensions', False)
 
 
 def load_csv_into_dataframe(middle_directory):
-    csv_path = os.path.join('..\\output', middle_directory, 'data_collected.csv')
+    csv_path = os.path.join('..', 'output', middle_directory, 'data_collected.csv')
     df = pd.read_csv(csv_path)
     return df
 
@@ -32,22 +31,18 @@ def analyze_data(data_frame, directory_name):
         plt.title(f'Histogram of {directory_name}: {column}')
         plt.xlabel(column)
         plt.ylabel('Frequency')
-        plt.show()
 
         # Create a directory for saving the histograms of each column
         save_directory = os.path.join("output", column)
         os.makedirs(save_directory, exist_ok=True)
         # Save the histogram to the specified directory
-        save_path = os.path.join(save_directory, f"{directory_name}_histogram.png")
+        save_path = os.path.join(save_directory, f"{directory_name}_histogram.jpg")
 
-        plt.show()
-        plt.savefig(save_path)
-
-        # Close the current figure
-        plt.close()
+        plt.savefig(save_path, format='jpg')  # Save the figure before showing and closing
+        plt.show()  # Show the figure
+        plt.close()  # Close the figure
 
 
-# Example usage
 directories = ['o_100_n_15_d_4_m_35__2023-06-20_00-27-40',
                'o_100_n_35_d_4_m_35__2023-06-20_00-26-32',
                'o_100_n_50_d_4_m_35__2023-06-20_00-28-24']
@@ -58,5 +53,5 @@ if __name__ == "__main__":
     for directory in directories:
         dataframe = load_csv_into_dataframe(directory)
         dataframes.append(dataframe)
-        analyze_data(dataframe, directory)
-
+        n_parameter = directory.split("_")[3]
+        analyze_data(dataframe, f"n={n_parameter}")
