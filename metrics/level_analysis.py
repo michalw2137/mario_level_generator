@@ -9,7 +9,7 @@ from sklearn import preprocessing
 import matplotlib.pyplot as plt
 import pandas as pd
 
-LINE_HEIGHT: [int] = 2  # for some reason height closer to 0 produces higher linearity score?
+LINE_HEIGHT: [int] = 4  # for some reason height closer to 0 produces higher linearity score?
 
 
 def get_gaps(level_data: list[str]) -> list[int]:
@@ -118,13 +118,17 @@ def get_platform_heights(max_heights: list[int]) -> list[int]:
     return platform_heights
 
 
-def calculate_linearity(level_data: list[str]):
+def calculate_line_distance(level_data: list[str]):
     max_heights = get_platform_heights(get_max_heights(level_data))
 
-    # diff: [float] = 0 # TODO: uncomment for different approach to linearity
-    # for height in max_heights:
-    #     diff += abs(height - LINE_HEIGHT)
-    # return diff / len(max_heights)
+    diff: [float] = 0 # TODO: uncomment for different approach to linearity
+    for height in max_heights:
+        diff += abs(height - LINE_HEIGHT)
+    return diff / len(max_heights)
+
+
+def calculate_linearity(level_data: list[str]):
+    max_heights = get_platform_heights(get_max_heights(level_data))
 
     y = np.array(max_heights)
     logger.info(f"Max heights: {max_heights}")
@@ -190,16 +194,18 @@ def plot(path: str, plot_title: str, data_frame):
 generation_times = []
 linearities = []
 leniencies = []
+line_distances = []
 structures_used_list = []
 level_lengths = []
 
-df = pd.DataFrame(columns=['time', 'leniency', 'linearity', 'structures_used', 'level_length'])
+df = pd.DataFrame(columns=['time', 'leniency', 'linearity', 'line_distance', 'structures_used', 'level_length'])
 
 
 def save_data(path: str):
     df['time'] = generation_times
     df['leniency'] = leniencies
     df['linearity'] = linearities
+    df['line_distance'] = line_distances
     df['structures_used'] = structures_used_list
     df['level_length'] = level_lengths
 
@@ -208,6 +214,6 @@ def save_data(path: str):
 
 if __name__ == '__main__':
     plot("../samples/overlap/levels/*.txt", "overlap", df)
-    plot("../samples/no_overlap/levels/*.txt", "no_overlap", df)
+ #   plot("../samples/no_overlap/levels/*.txt", "no_overlap", df)
 
-    save_data()
+    # save_data()
