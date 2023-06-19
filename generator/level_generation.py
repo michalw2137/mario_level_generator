@@ -30,7 +30,6 @@ def backtrack(structures):
 
     for connector in removed_structure.connecting:
         logger.info("Clearing connectors associated with structure {}".format(removed_structure.id))
-        test_logger.info("siku kupa pierd")
         if connector.combined != None:
             structure1, c1 = connector.combined
             c1.combined = None
@@ -195,8 +194,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
     finished = False
 
     logger.info("Generating level...")
-    level = []  # the generating level is a list of structures
-    level.append(copy.deepcopy(g_s))
+    level = [copy.deepcopy(g_s)]  # the generating level is a list of structures
     logger.info("Initial structure generated!\n{}".format(print_level(level)))
 
     substitutions = available_substitutions(level)
@@ -211,12 +209,19 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
             # for str1, c1, str2_id, c2_id in substitutions:
             #   logger.info("Structure {}, connector {}, to Structure {} via connector {}".format(str1.id, c1, str2_id, c2_id))
             while len(substitutions) == 0:
-                level = backtrack(level)
+                try:
+                    level = backtrack(level)
+                except IndexError:
+                    logger.critical("pop from empty structure list")
+                    break
                 substitutions = available_substitutions(level)
                 count_backtrack += 1
+                print(f"backtrackig {count_backtrack}")
+
             str1, c1, str2_id, c2_sub_id = random.choice(substitutions)
             substitutions.remove((str1, c1, str2_id, c2_sub_id))
-            if str2_id == g_s.id or str2_id == g_f.id: continue
+            if str2_id == g_s.id or str2_id == g_f.id:
+                continue
             str2 = copy.deepcopy(original_structures[str2_id])
             c2 = str2.get_connector(c2_sub_id)
 
@@ -232,11 +237,17 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
             density = get_density_score(level, 2)
 
             if len(substitutions) <= 0 or collides:
-                if len(substitutions) <= 0: logger.info(
-                    "Simulated structure has no available substitutions, trying next...")
-                if collides: logger.info("Collision Happened!")
+                if len(substitutions) <= 0:
+                    logger.info("Simulated structure has no available substitutions, trying next...")
+                if collides:
+                    logger.info("Collision Happened!")
                 c1.combined = None  # reset state of first connector
-                level = backtrack(level)
+
+                try:
+                    level = backtrack(level)
+                except IndexError:
+                    logger.critical("pop from empty structure list")
+                    break
                 substitutions = available_substitutions(level)
                 # input("Press Enter to continue...")
             else:
@@ -250,6 +261,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
 
         count_substitutions += 1
         if count_backtrack > 500:
+            print("count_backtrack > 500, breaking")
             break
 
         logger.info("Available substitutions: {}".format(len(substitutions)))
@@ -288,7 +300,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
     print("Length: {}".format(len(level)))
     for s in level:
         generated_structure.nodes.extend(s.nodes)
-    return generated_structure, usage_stats, count_substitutions
+    return generated_structure, usage_stats, count_substitutions, count_backtrack
 
 
 def instantiate_base_level(id_structures):

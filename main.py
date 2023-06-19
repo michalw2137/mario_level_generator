@@ -221,7 +221,7 @@ if __name__ == '__main__':
 
         start_time = time.time()
 
-        level, stats, structures_used = level_generation.generate_level(
+        level, stats, structures_used, backtrack_count = level_generation.generate_level(
             structures, g_s, g_f, opt.min_structures)
 
         duration = time.time() - start_time
