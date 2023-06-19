@@ -36,9 +36,9 @@ def analyze_data(data_frame, directory_name):
         save_directory = os.path.join("output", column)
         os.makedirs(save_directory, exist_ok=True)
         # Save the histogram to the specified directory
-        save_path = os.path.join(save_directory, f"{directory_name}_histogram.jpg")
+        save_path = os.path.join(save_directory, f"{directory_name}_histogram.png")
 
-        plt.savefig(save_path, format='jpg')  # Save the figure before showing and closing
+        plt.savefig(save_path)  # Save the figure before showing and closing
         plt.show()  # Show the figure
         plt.close()  # Close the figure
 
