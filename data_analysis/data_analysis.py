@@ -1,6 +1,8 @@
 import os
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('TkAgg')  # Set the backend to TkAgg
 
 # Set the Pandas display options to show all columns
 pd.set_option('display.max_columns', None)
@@ -27,10 +29,22 @@ def analyze_data(data_frame, directory_name):
     # Plot histograms for all columns
     for column in data_frame.columns:
         data_frame[column].plot(kind='hist')
-        plt.title(f'Histogram: {column}')
+        plt.title(f'Histogram of {directory_name}: {column}')
         plt.xlabel(column)
         plt.ylabel('Frequency')
         plt.show()
+
+        # Create a directory for saving the histograms of each column
+        save_directory = os.path.join("output", column)
+        os.makedirs(save_directory, exist_ok=True)
+        # Save the histogram to the specified directory
+        save_path = os.path.join(save_directory, f"{directory_name}_histogram.png")
+
+        plt.show()
+        plt.savefig(save_path)
+
+        # Close the current figure
+        plt.close()
 
 
 # Example usage
