@@ -9,7 +9,7 @@ from sklearn import preprocessing
 import matplotlib.pyplot as plt
 import pandas as pd
 
-LINE_HEIGHT: [int] = 4  # for some reason height closer to 0 produces higher linearity score?
+LINE_HEIGHT: [int] = 2  # for some reason height closer to 0 produces higher linearity score?
 
 
 def get_gaps(level_data: list[str]) -> list[int]:
