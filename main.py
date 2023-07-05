@@ -241,7 +241,7 @@ if __name__ == '__main__':
         level_path = f"{levels_output_dir}/level_{n}.txt"
         # print("Rendering level {}".format(n))
         level.save_as_level(level_path)
-        render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
+        # render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
 
     save_data(f'output/{output_dir}')
     # print(generation_times)
