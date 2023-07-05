@@ -17,35 +17,55 @@ def load_csv_into_dataframe(middle_directory):
     return df
 
 
-def analyze_data(data_frame, directory_name):
+def analyze_data(data_frame, parameter_value):
     # Calculate summary statistics
     summary_stats = data_frame.describe(include="all")
     # Exclude the count row from the summary statistics
     summary_stats = summary_stats.drop("count")
-    print(f"\n\n\nSummary Statistics for {directory_name}:")
+    print(f"\n\n\nSummary Statistics for {parameter_value}:")
     print(summary_stats)
 
-    # Plot histograms for all columns
-    for column in data_frame.columns:
-        data_frame[column].plot(kind='hist')
-        plt.title(f'Histogram of {directory_name}: {column}')
-        plt.xlabel(column)
-        plt.ylabel('Frequency')
+    # Define the number of rows and columns for subplots
+    num_rows = 2
+    num_cols = 4
 
-        # Create a directory for saving the histograms of each column
-        save_directory = os.path.join("output", column)
-        os.makedirs(save_directory, exist_ok=True)
-        # Save the histogram to the specified directory
-        save_path = os.path.join(save_directory, f"{directory_name}_histogram.png")
+    # Create subplots
+    fig, axes = plt.subplots(num_rows, num_cols, figsize=(15, 15))
 
-        plt.savefig(save_path)  # Save the figure before showing and closing
-        plt.show()  # Show the figure
-        plt.close()  # Close the figure
+    # Flatten the axes array
+    axes = axes.flatten()
+
+    # Plot histograms for each column
+    for i, column in enumerate(data_frame.columns):
+        axes[i].hist(data_frame[column])
+        axes[i].set_title(f'Histogram of {parameter_value}: {column}')
+        axes[i].set_xlabel(column)
+        axes[i].set_ylabel('Frequency')
+
+    # Adjust spacing between subplots
+    fig.tight_layout()
+
+    # Create a directory for saving the histograms
+    save_directory = os.path.join("output", "all_columns")
+    os.makedirs(save_directory, exist_ok=True)
+    # Save the figure to the specified directory
+    save_path = os.path.join(save_directory, f"{parameter_value}_histograms.png")
+
+    plt.savefig(save_path)  # Save the figure before showing and closing
+    plt.show()  # Show the figure
+    plt.close()  # Close the figure
 
 
-directories = ['o_100_n_15_d_4_m_35__2023-06-20_00-27-40',
-               'o_100_n_35_d_4_m_35__2023-06-20_00-26-32',
-               'o_100_n_50_d_4_m_35__2023-06-20_00-28-24']
+
+# directories = ['o_100_n_20_d_4_m_35__2023-06-20_10-05-29',
+#                'o_100_n_35_d_4_m_35__2023-06-20_00-26-32',
+#                'o_100_n_50_d_4_m_35__2023-06-20_00-28-24',
+#                'o_100_n_20_d_4_m_35__2023-06-20_10-16-08',
+#                'o_100_n_35_d_4_m_35__2023-06-20_10-15-02',
+#                'o_100_n_50_d_4_m_35__2023-06-20_10-13-00']
+
+directories = ['o_10_n_20_d_4_m_35__2023-06-21_12-02-07',
+               'o_10_n_50_d_4_m_35__2023-06-21_12-02-56']
 
 dataframes = []
 
@@ -54,4 +74,5 @@ if __name__ == "__main__":
         dataframe = load_csv_into_dataframe(directory)
         dataframes.append(dataframe)
         n_parameter = directory.split("_")[3]
-        analyze_data(dataframe, f"n={n_parameter}")
+        generation_time = directory.split("_")[10]
+        analyze_data(dataframe, f"n={n_parameter} [{generation_time}]")
