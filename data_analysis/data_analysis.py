@@ -64,7 +64,7 @@ def analyze_data(data_frame, parameter_value):
 #                'o_100_n_50_d_4_m_35__2023-06-20_10-13-00']
 
 # Get a list of all directories inside the "output" directory
-output_directory = 'output'
+output_directory = '../output'
 directories = [name for name in os.listdir(output_directory) if os.path.isdir(os.path.join(output_directory, name))]
 
 dataframes = []

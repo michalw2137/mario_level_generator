@@ -217,7 +217,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
                     break
                 substitutions = available_substitutions(level)
                 count_backtrack += 1
-                print(f"backtrackig {count_backtrack}")
+                # print(f"backtrackig {count_backtrack}")
 
             str1, c1, str2_id, c2_sub_id = random.choice(substitutions)
             substitutions.remove((str1, c1, str2_id, c2_sub_id))
@@ -300,7 +300,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
             break
 
     generated_structure = Structure(-1)
-    print("Length: {}".format(len(level)))
+    # print("Length: {}".format(len(level)))
     for s in level:
         generated_structure.nodes.extend(s.nodes)
     return generated_structure, usage_stats, count_substitutions, count_backtrack

@@ -239,7 +239,7 @@ if __name__ == '__main__':
         level_lengths.append(len(level_data[0]))
 
         level_path = f"{levels_output_dir}/level_{n}.txt"
-        print("Rendering level {}".format(n))
+        # print("Rendering level {}".format(n))
         level.save_as_level(level_path)
         render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
 
