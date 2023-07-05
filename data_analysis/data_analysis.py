@@ -56,7 +56,6 @@ def analyze_data(data_frame, parameter_value):
     plt.close()  # Close the figure
 
 
-
 # directories = ['o_100_n_20_d_4_m_35__2023-06-20_10-05-29',
 #                'o_100_n_35_d_4_m_35__2023-06-20_00-26-32',
 #                'o_100_n_50_d_4_m_35__2023-06-20_00-28-24',
@@ -64,8 +63,9 @@ def analyze_data(data_frame, parameter_value):
 #                'o_100_n_35_d_4_m_35__2023-06-20_10-15-02',
 #                'o_100_n_50_d_4_m_35__2023-06-20_10-13-00']
 
-directories = ['o_10_n_20_d_4_m_35__2023-06-21_12-02-07',
-               'o_10_n_50_d_4_m_35__2023-06-21_12-02-56']
+# Get a list of all directories inside the "output" directory
+output_directory = 'output'
+directories = [name for name in os.listdir(output_directory) if os.path.isdir(os.path.join(output_directory, name))]
 
 dataframes = []
 
