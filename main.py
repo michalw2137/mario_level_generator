@@ -221,8 +221,11 @@ if __name__ == '__main__':
 
         start_time = time.time()
 
-        level, stats, structures_used, backtrack_count = level_generation.generate_level(
-            structures, g_s, g_f, opt.min_structures)
+        try:
+            level, stats, structures_used, backtrack_count = level_generation.generate_level(
+                structures, g_s, g_f, opt.min_structures)
+        except EnvironmentError:
+            continue
 
         duration = time.time() - start_time
 
@@ -239,9 +242,9 @@ if __name__ == '__main__':
         level_lengths.append(len(level_data[0]))
 
         level_path = f"{levels_output_dir}/level_{n}.txt"
-        # print("Rendering level {}".format(n))
+        print("Rendering level {}".format(n))
         level.save_as_level(level_path)
-        # render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
+        render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
 
     save_data(f'output/{output_dir}')
     # print(generation_times)

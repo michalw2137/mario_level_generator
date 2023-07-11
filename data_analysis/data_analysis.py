@@ -71,8 +71,11 @@ dataframes = []
 
 if __name__ == "__main__":
     for directory in directories:
-        dataframe = load_csv_into_dataframe(directory)
-        dataframes.append(dataframe)
-        n_parameter = directory.split("_")[3]
-        generation_time = directory.split("_")[10]
-        analyze_data(dataframe, f"n={n_parameter} [{generation_time}]")
+        try:
+            dataframe = load_csv_into_dataframe(directory)
+            dataframes.append(dataframe)
+            n_parameter = directory.split("_")[3]
+            generation_time = directory.split("_")[10]
+            analyze_data(dataframe, f"n={n_parameter} [{generation_time}]")
+        except:
+            print("no data file")

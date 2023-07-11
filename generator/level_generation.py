@@ -213,8 +213,9 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
                     level = backtrack(level)
                 except IndexError:
                     print("pop from empty list when substitutions == 0")
-                    logger.critical("pop from empty structure list")
-                    break
+                    logger.critical(f"pop from empty structure list, {usage_stats}, {count_substitutions}, {count_backtrack}")
+                    raise EnvironmentError("first structure doesnt have connections")
+
                 substitutions = available_substitutions(level)
                 count_backtrack += 1
                 # print(f"backtrackig {count_backtrack}")
