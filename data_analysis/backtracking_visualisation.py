@@ -93,6 +93,11 @@ if __name__ == "__main__":
     for pre, _, node in RenderTree(root_node):
         print(f"{pre}{node.name}")
 
+    # Save the pretty print result to a file
+    with open("./output/trees/tree.txt", "w", encoding="utf-8") as file:
+        for pre, _, node in RenderTree(root_node):
+            file.write(f"{pre}{node.name}\n")
+
     # Visualize the tree using DotExporter
-    DotExporter(root_node).to_dotfile(f"./output/trees/tree.jpg")
+    DotExporter(root_node).to_dotfile(f"./output/trees/tree.dot")
     print("Tree structure visualized with DotExporter.")
