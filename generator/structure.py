@@ -17,7 +17,7 @@ class Connector:
         self.structure = structure
 
     def __repr__(self):
-        return "(sub_id:{}, ({},{}))".format(self.sub_id, self.r, self.c)
+        return "(Connector sub_id:{}, ({},{}) combinable: {})\n".format(self.sub_id, self.r, self.c, self.combinable)
 
 
 class Node:
@@ -30,7 +30,7 @@ class Node:
         self.edges = []
 
     def __repr__(self):
-        return "({},{})".format(self.r, self.c)
+        return "Node({},{} {})".format(self.r, self.c, self.tile)
 
 
 class Structure:
@@ -85,7 +85,9 @@ class Structure:
         return substitutions
 
     def __repr__(self):
-        return "ID: {}\n Nodes: {}\n Connecting Nodes: {}".format(self.id, self.nodes, self.connecting)
+        return f"StructureID: {self.id}"
+        # return "ID: {} \n Connecting Nodes: {} ".format(self.id, self.connecting)
+        # return "ID: {}\n Nodes: {}\n Connecting Nodes: {}".format(self.id, self.nodes, self.connecting)
 
     def matrix_representation(self):
         generated = Level(" ")

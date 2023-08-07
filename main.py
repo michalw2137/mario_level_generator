@@ -107,9 +107,16 @@ def save_structures(g_s, g_f, structures, folder):
 
     output_file = open("{}/struct_stats.txt".format(folder), "w")
     for s in structures:
+        substitutions = s.available_substitutions()
         print("{}, {}, {}".format(s.id, len(s.connecting),
-                                  len(s.available_substitutions())),
+                                  len(substitutions)),
               file=output_file)
+        ##
+        print(s, "Substitutions: ", s.connecting)
+        print()
+        print("substitutions.txt: ", substitutions)
+        print("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+        print("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
     output_file.close()
 
 

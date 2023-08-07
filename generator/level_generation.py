@@ -205,14 +205,14 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
     while len(substitutions) > 0:
 
         while True:
-            # logger.info("All Available substitutions: ")
-            # for str1, c1, str2_id, c2_id in substitutions:
+            # logger.info("All Available substitutions.txt: ")
+            # for str1, c1, str2_id, c2_id in substitutions.txt:
             #   logger.info("Structure {}, connector {}, to Structure {} via connector {}".format(str1.id, c1, str2_id, c2_id))
             while len(substitutions) == 0:
                 try:
                     level = backtrack(level)
                 except IndexError:
-                    print("pop from empty list when substitutions == 0")
+                    print("pop from empty list when substitutions.txt == 0")
                     logger.critical(f"pop from empty structure list, {usage_stats}, {count_substitutions}, {count_backtrack}")
                     raise EnvironmentError("first structure doesnt have connections")
 
@@ -241,7 +241,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
 
             if len(substitutions) <= 0 or collides:
                 if len(substitutions) <= 0:
-                    logger.info("Simulated structure has no available substitutions, trying next...")
+                    logger.info("Simulated structure has no available substitutions.txt, trying next...")
                 if collides:
                     logger.info("Collision Happened!")
                 c1.combined = None  # reset state of first connector
@@ -249,7 +249,7 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
                 try:
                     level = backtrack(level)
                 except IndexError:
-                    print("pop from empty list when substitutions <= 0 or collides")
+                    print("pop from empty list when substitutions.txt <= 0 or collides")
                     logger.critical("pop from empty structure list")
                     break
                 substitutions = available_substitutions(level)
@@ -268,14 +268,14 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
             print("count_backtrack > 500, breaking")
             break
 
-        logger.info("Available substitutions: {}".format(len(substitutions)))
+        logger.info("Available substitutions.txt: {}".format(len(substitutions)))
         logger.info("Substitutions applied so far: {}".format(count_substitutions))
         logger.info("\n{}".format(print_level(level)))
 
         # if highest_col >= 202:
         if len(level) == minimum_count:
             # OPTION 1: try to append g_f
-            # for str1, c1, str2_id, c2_sub_id in substitutions:
+            # for str1, c1, str2_id, c2_sub_id in substitutions.txt:
             #   if str2_id == g_f.id:
             #     str2 = copy.deepcopy(g_f)
             #     c2 = str2.get_connector(c2_sub_id)
