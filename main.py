@@ -55,6 +55,10 @@ def parse_args(args):
                       dest="min_structures",
                       help="Minimum number of structures for a level",
                       default=35)
+    parser.add_option('-g', action="store", type="string",
+                      dest="generate",
+                      help="Generate or not levels based on selected structures",
+                      default="False")
     (opt, args) = parser.parse_args()
     return opt, args
 
@@ -216,35 +220,36 @@ if __name__ == '__main__':
     structure_matching.compute_combinations(structures + [g_s, g_f])
     save_structures(g_s, g_f, structures, structures_output_dir)
 
-    for n in range(opt.output_number):
-        logging.info("Generating level {}".format(n))
+    if opt.generate == "True":
+        for n in range(opt.output_number):
+            logging.info("Generating level {}".format(n))
 
-        start_time = time.time()
+            start_time = time.time()
 
-        try:
-            level, stats, structures_used, backtrack_count = level_generation.generate_level(
-                structures, g_s, g_f, opt.min_structures)
-        except EnvironmentError:
-            continue
+            try:
+                level, stats, structures_used, backtrack_count = level_generation.generate_level(
+                    structures, g_s, g_f, opt.min_structures)
+            except EnvironmentError:
+                continue
 
-        duration = time.time() - start_time
+            duration = time.time() - start_time
 
-        level_data = level.matrix_representation()
-        # print(*level_data, sep='\n')
+            level_data = level.matrix_representation()
+            # print(*level_data, sep='\n')
 
-        generation_times.append(duration)
-        leniencies.append(calculate_leniency(level_data))
-        linearities.append(calculate_linearity(level_data))
-        line_distances.append(calculate_line_distance(level_data))
-        backtrackings.append(backtrack_count)
+            generation_times.append(duration)
+            leniencies.append(calculate_leniency(level_data))
+            linearities.append(calculate_linearity(level_data))
+            line_distances.append(calculate_line_distance(level_data))
+            backtrackings.append(backtrack_count)
 
-        structures_used_list.append(structures_used)
-        level_lengths.append(len(level_data[0]))
+            structures_used_list.append(structures_used)
+            level_lengths.append(len(level_data[0]))
 
-        level_path = f"{levels_output_dir}/level_{n}.txt"
-        print("Rendering level {}".format(n))
-        level.save_as_level(level_path)
-        render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
+            level_path = f"{levels_output_dir}/level_{n}.txt"
+            print("Rendering level {}".format(n))
+            level.save_as_level(level_path)
+            render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
 
-    save_data(f'output/{output_dir}')
-    # print(generation_times)
+        save_data(f'output/{output_dir}')
+        # print(generation_times)
