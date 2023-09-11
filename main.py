@@ -58,6 +58,10 @@ def parse_args(args):
     parser.add_option('-g', action="store", type="string",
                       dest="generate",
                       help="Generate or not levels based on selected structures",
+                      default="True")
+    parser.add_option('-r', action="store", type="string",
+                      dest="render",
+                      help="Render or not levels as png files",
                       default="False")
     (opt, args) = parser.parse_args()
     return opt, args
@@ -66,12 +70,15 @@ def parse_args(args):
 def get_level_paths(opt):
     levels = []
     if "txt" in opt.mapfile:
+        print(f"txt parameter defined ({opt.mapfile})")
         levels.append([opt.mapfile, opt.n, opt.d])
     else:
         file_names = os.listdir(opt.mapfile)
         file_paths = ["{}{}".format(opt.mapfile, x) for x in file_names]
+        print(f"txt parameter not defined, file paths: {file_paths}")
         for file in file_paths:
-            if "DS_Store" in file: continue
+            if "DS_Store" in file:
+                continue
             levels.append([file, opt.n, opt.d])
     return levels
 
@@ -106,17 +113,18 @@ def save_structures(g_s, g_f, structures, folder):
                      "{}/g_f.png".format(folder))
 
     output_file = open("{}/struct_stats.txt".format(folder), "w")
-    for s in structures:
-        substitutions = s.available_substitutions()
-        print("{}, {}, {}".format(s.id, len(s.connecting),
-                                  len(substitutions)),
-              file=output_file)
-        ##
-        print(s, "Substitutions: ", s.connecting)
-        print()
-        print("substitutions.txt: ", substitutions)
-        print("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-        print("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
+    # for s in structures:
+    #     substitutions = s.available_substitutions()
+    #     print("{}, {}, {}".format(s.id, len(s.connecting),
+    #                               len(substitutions)),
+    #           file=output_file)
+    #     ##
+    #     print(s, "Substitutions: ", s.connecting)
+    #     print()
+    #     print("substitutions.txt: ", substitutions)
+    #     print("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    #     print("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
     output_file.close()
 
 
@@ -193,8 +201,9 @@ def minimize_combinations(structures):
 
 
 if __name__ == '__main__':
-
+    print("- Parsing args")
     opt, args = parse_args(sys.argv[1:])
+    print("- Setting recursion limit")
     sys.setrecursionlimit(10000)  # required for some of the operations
 
 # # make sure the output directory exists, otherwise create it
@@ -202,6 +211,7 @@ if __name__ == '__main__':
 # Path("output/levels/").mkdir(parents=True, exist_ok=True)
 
     # construct output directory paths
+    print("- Getting current time")
     current_time = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     output_dir = f"o_{opt.output_number}_n_{opt.n}_d_{opt.d}_m_{opt.min_structures}__{current_time}"
 
@@ -209,12 +219,15 @@ if __name__ == '__main__':
     levels_output_dir = Path(f"output/{output_dir}/levels")
 
     # create directories if they don't exist
+    print("- Creating output directories")
     structures_output_dir.mkdir(parents=True, exist_ok=True)
     levels_output_dir.mkdir(parents=True, exist_ok=True)
 
+    print("- Getting level data")
     data = get_level_paths(opt)
 
     # g_s, g_f, structures = load_structures()
+    print("- Extracting structures")
     g_s, g_f, structures = extract_structures(data)
 
     # logging.info("Num of structures before subset: {}".format(len(structures)))
@@ -224,12 +237,17 @@ if __name__ == '__main__':
 
     selected = [s.id for s in structures]
     logging.info("Selected structures: {}".format(selected))
+
+    print("- Computing structure combinations")
     structure_matching.compute_combinations(structures + [g_s, g_f])
+
+    print("- Saving structures")
     save_structures(g_s, g_f, structures, structures_output_dir)
 
     if opt.generate == "True":
         for n in range(opt.output_number):
             logging.info("Generating level {}".format(n))
+            print(f"Generating level {n}")
 
             start_time = time.time()
 
@@ -254,9 +272,11 @@ if __name__ == '__main__':
             level_lengths.append(len(level_data[0]))
 
             level_path = f"{levels_output_dir}/level_{n}.txt"
-            print("Rendering level {}".format(n))
             level.save_as_level(level_path)
-            render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
+
+            if opt.render == "True":
+                print("Rendering level {}".format(n))
+                render_structure(level_path, f"{levels_output_dir}/level_{n}.png")
 
         save_data(f'output/{output_dir}')
         # print(generation_times)

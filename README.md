@@ -16,4 +16,6 @@ Options:
   -n N               Number of structures to be selected
   -d D               Base size of structures
   -m MIN_STRUCTURES  Minimum number of structures for a level
+  -g generate        Generate or not levels based on selected structures
+  -r render          Render or not levels as png files
   ```

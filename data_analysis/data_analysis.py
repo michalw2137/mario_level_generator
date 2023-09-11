@@ -46,7 +46,7 @@ def analyze_data(data_frame, parameter_value):
     fig.tight_layout()
 
     # Create a directory for saving the histograms
-    save_directory = os.path.join("output", "all_columns")
+    save_directory = os.path.join("output", "histograms")
     os.makedirs(save_directory, exist_ok=True)
     # Save the figure to the specified directory
     save_path = os.path.join(save_directory, f"{parameter_value}_histograms.png")
