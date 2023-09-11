@@ -1,13 +1,26 @@
+import logging
+import os
+
 from sklearn.linear_model import LinearRegression
 from generator.constants import platform_tiles, enemy_tiles, powerup_tiles
 from tools.render_level.render_level import parse_file
 from numpy import mean
 import numpy as np
-from new_logs.my_loggers import logger
-from glob import glob
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
 import pandas as pd
+from pathlib import Path
+
+# Set the Pandas display options to show all columns
+pd.set_option('display.max_columns', None)
+# Set the Pandas display options to disable scientific notation
+pd.set_option('display.float_format', '{:.2f}'.format)
+# Set the Pandas display options to exclude count
+pd.set_option('display.show_dimensions', False)
+
+logging.basicConfig(filename="output/log.log",
+                    level=logging.DEBUG,
+                    filemode='w')
 
 LINE_HEIGHT: [int] = 2  # for some reason height closer to 0 produces higher linearity score?
 
@@ -65,16 +78,16 @@ def calculate_leniency(level_data: list[str]) -> float:
     leniency += enemies_count * 1
     leniency += powerups_count * -1
 
-    logger.debug(f"gaps:{gaps}")
-    logger.debug(f"enemies: {enemies}")
-    logger.debug(f"powerups: {powerups}")
+    logging.debug(f"gaps:{gaps}")
+    logging.debug(f"enemies: {enemies}")
+    logging.debug(f"powerups: {powerups}")
 
-    logger.debug(f"[gaps count] 0.5 * {gaps_count} = {0.5 * gaps_count}")
-    logger.debug(f"[average gap] 1 * {average_gap} = {average_gap}")
-    logger.debug(f"[enemies count] 1 * {enemies_count} = {enemies_count}")
-    logger.debug(f"[powerups count] -1 * {powerups_count} = {-powerups_count} ")
+    logging.debug(f"[gaps count] 0.5 * {gaps_count} = {0.5 * gaps_count}")
+    logging.debug(f"[average gap] 1 * {average_gap} = {average_gap}")
+    logging.debug(f"[enemies count] 1 * {enemies_count} = {enemies_count}")
+    logging.debug(f"[powerups count] -1 * {powerups_count} = {-powerups_count} ")
 
-    logger.info(f"leniency = {leniency}")
+    logging.info(f"leniency = {leniency}")
 
     return leniency
 
@@ -104,15 +117,15 @@ def get_platform_heights(max_heights: list[int]) -> list[int]:
     """
 
     platform_heights = []
-    logger.debug(f"max heights: {max_heights}")
+    logging.debug(f"max heights: {max_heights}")
 
     for i, (height, next_height) in enumerate(zip(max_heights, max_heights[1:])):
         if height != next_height:
             platform_heights.append(height)
-            logger.debug(f"platform at height {height}")
+            logging.debug(f"platform at height {height}")
         else:
             if i == len(max_heights) - 2:
-                logger.debug(f"last tile at height {next_height}")
+                logging.debug(f"last tile at height {next_height}")
                 platform_heights.append(next_height)
 
     return platform_heights
@@ -121,7 +134,7 @@ def get_platform_heights(max_heights: list[int]) -> list[int]:
 def calculate_line_distance(level_data: list[str]):
     max_heights = get_platform_heights(get_max_heights(level_data))
 
-    diff: [float] = 0 # TODO: uncomment for different approach to linearity
+    diff: [float] = 0  # TODO: uncomment for different approach to linearity
     for height in max_heights:
         diff += abs(height - LINE_HEIGHT)
     return diff / len(max_heights)
@@ -131,7 +144,7 @@ def calculate_linearity(level_data: list[str]):
     max_heights = get_platform_heights(get_max_heights(level_data))
 
     y = np.array(max_heights)
-    logger.info(f"Max heights: {max_heights}")
+    logging.info(f"Max heights: {max_heights}")
     x = np.array(list(range(len(y)))).reshape((-1, 1))
 
     model = LinearRegression().fit(x, y)
@@ -142,7 +155,7 @@ def calculate_linearity(level_data: list[str]):
     # print(f"slope: {model.coef_}")
 
     y_predict = model.predict(x)
-    logger.info(f"Predicted heights: {y_predict}")
+    logging.info(f"Predicted heights: {y_predict}")
 
     # print(f"predicted: {y_predict}")
 
@@ -156,13 +169,16 @@ def calculate_linearity(level_data: list[str]):
 def plot(path: str, plot_title: str, data_frame):
     leniencies = []
     linearities = []
-    for filename in glob(path, recursive=False):
+
+    print(os.listdir(path))
+    for filename in os.listdir(path):
         # for filename in glob("../samples/no_overlap/levels/*.txt", recursive=False):
         # for filename in glob("../maps/*.txt", recursive=False):
-        logger.info("")
-        logger.info("")
-        logger.info(f"Analyzing {filename}")
-        level = parse_file(filename)
+
+        logging.info("")
+        logging.info("")
+        logging.info(f"Analyzing {filename}")
+        level = parse_file(os.path.join(path, filename))
 
         leniencies.append(calculate_leniency(level))
         linearities.append(calculate_linearity(level))
@@ -191,6 +207,7 @@ def plot(path: str, plot_title: str, data_frame):
     plt.show()
 
 
+structure_ids = []
 generation_times = []
 linearities = []
 leniencies = []
@@ -199,7 +216,13 @@ structures_used_list = []
 backtrackings = []
 level_lengths = []
 
-df = pd.DataFrame(columns=['time', 'leniency', 'linearity', 'line_distance', 'structures_used', 'backtrackings', 'level_length'])
+
+df = pd.DataFrame(
+    columns=['time', 'leniency', 'linearity', 'line_distance', 'structures_used', 'backtrackings', 'level_length'])
+
+
+structures_frame = pd.DataFrame(
+    columns=['id', 'leniency', 'linearity', 'line_distance'])
 
 
 def save_data(path: str):
@@ -214,8 +237,34 @@ def save_data(path: str):
     df.to_csv(f'{path}/data_collected.csv', index=False)
 
 
-if __name__ == '__main__':
-    plot("../samples/overlap/levels/*.txt", "overlap", df)
- #   plot("../samples/no_overlap/levels/*.txt", "no_overlap", df)
+def save_structures_data(path: str):
+    structures_frame['id'] = structure_ids
+    structures_frame['leniency'] = leniencies
+    structures_frame['linearity'] = linearities
+    structures_frame['line_distance'] = line_distances
 
-    # save_data()
+    structures_frame.to_csv(path, index=False)
+    linearities.clear()
+    leniencies.clear()
+    line_distances.clear()
+
+def analyze_structures(path: Path):
+    for filename in os.listdir(path):
+        if ".txt" not in filename or "struct_stats" in filename:
+            print(f"skipping {filename}")
+            continue
+
+        structure = parse_file(os.path.join(path, filename))
+
+        structure_ids.append(filename[2:-4])
+        leniencies.append(calculate_leniency(structure))
+        linearities.append(calculate_linearity(structure))
+        line_distances.append(calculate_line_distance(structure))
+
+
+if __name__ == '__main__':
+    analyze_structures(Path("../samples/level1_remix/structures"))
+    save_structures_data(f'./output/data_collected.csv')
+# plot("../samples/level1_remix/structures/", "overlap", df)
+#   plot("../samples/no_overlap/levels/*.txt", "no_overlap", df)
+# save_data()

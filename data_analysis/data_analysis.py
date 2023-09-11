@@ -14,7 +14,11 @@ pd.set_option('display.show_dimensions', False)
 def load_csv_into_dataframe(middle_directory):
     csv_path = os.path.join('..', 'output', middle_directory, 'data_collected.csv')
     df = pd.read_csv(csv_path)
-    return df
+
+    csv_path_2 = os.path.join('..', 'output', middle_directory, 'structures_data.csv')
+    df2 = pd.read_csv(csv_path_2)
+
+    return df, df2
 
 
 def analyze_data(data_frame, parameter_value):
@@ -67,15 +71,16 @@ def analyze_data(data_frame, parameter_value):
 output_directory = '../output'
 directories = [name for name in os.listdir(output_directory) if os.path.isdir(os.path.join(output_directory, name))]
 
-dataframes = []
 
 if __name__ == "__main__":
     for directory in directories:
         try:
-            dataframe = load_csv_into_dataframe(directory)
-            dataframes.append(dataframe)
+            dataframe, structures_df = load_csv_into_dataframe(directory)
+
             n_parameter = directory.split("_")[3]
             generation_time = directory.split("_")[10]
+
             analyze_data(dataframe, f"n={n_parameter} [{generation_time}]")
+            analyze_data(structures_df, "structures")
         except:
             print("no data file")

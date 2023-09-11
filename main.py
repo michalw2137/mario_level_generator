@@ -14,7 +14,8 @@ from generator import structure_identification
 from generator import structure_matching
 from helper import io
 from metrics.level_analysis import generation_times, leniencies, calculate_leniency, linearities, calculate_linearity, \
-    save_data, structures_used_list, level_lengths, line_distances, calculate_line_distance, backtrackings
+    save_data, structures_used_list, level_lengths, line_distances, calculate_line_distance, backtrackings, \
+    analyze_structures, save_structures_data
 from tools.render_level.render_level import render_structure
 
 # uncomment for truncated file
@@ -105,9 +106,12 @@ def save_structures(g_s, g_f, structures, folder):
         io.save(s, "{}/s_{}".format(folder, s.id))
         render_structure(s.matrix_representation(),
                          "{}/s_{}.png".format(folder, s.id))
+        s.save_as_level(f"{folder}/s_{s.id}.txt")
+
     io.save(g_s, "{}/g_s".format(folder))
     render_structure(g_s.matrix_representation(),
                      "{}/g_s.png".format(folder))
+
     io.save(g_f, "{}/g_f".format(folder))
     render_structure(g_f.matrix_representation(),
                      "{}/g_f.png".format(folder))
@@ -244,6 +248,9 @@ if __name__ == '__main__':
     print("- Saving structures")
     save_structures(g_s, g_f, structures, structures_output_dir)
 
+    analyze_structures(structures_output_dir)
+    save_structures_data(f"output/{output_dir}/structures_data.csv")
+
     if opt.generate == "True":
         for n in range(opt.output_number):
             logging.info("Generating level {}".format(n))
@@ -255,6 +262,7 @@ if __name__ == '__main__':
                 level, stats, structures_used, backtrack_count = level_generation.generate_level(
                     structures, g_s, g_f, opt.min_structures)
             except EnvironmentError:
+                print("Environmet Error!")
                 continue
 
             duration = time.time() - start_time
