@@ -213,12 +213,13 @@ linearities = []
 leniencies = []
 line_distances = []
 structures_used_list = []
+structures_count_list = []
 backtrackings = []
 level_lengths = []
 
 
 df = pd.DataFrame(
-    columns=['time', 'leniency', 'linearity', 'line_distance', 'structures_used', 'backtrackings', 'level_length'])
+    columns=['time', 'leniency', 'linearity', 'line_distance', 'structures_used', 'structures_count', 'backtrackings', 'level_length'])
 
 
 structures_frame = pd.DataFrame(
@@ -231,6 +232,7 @@ def save_data(path: str):
     df['linearity'] = linearities
     df['line_distance'] = line_distances
     df['structures_used'] = structures_used_list
+    df['structures_count'] = structures_count_list
     df['backtrackings'] = backtrackings
     df['level_length'] = level_lengths
 
@@ -251,7 +253,7 @@ def save_structures_data(path: str):
 def analyze_structures(path: Path):
     for filename in os.listdir(path):
         if ".txt" not in filename or "struct_stats" in filename:
-            print(f"skipping {filename}")
+            # print(f"skipping {filename}")
             continue
 
         structure = parse_file(os.path.join(path, filename))

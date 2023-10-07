@@ -4,6 +4,7 @@ import optparse
 import os
 import sys
 import time
+import json
 from datetime import datetime
 from pathlib import Path
 
@@ -15,7 +16,7 @@ from generator import structure_matching
 from helper import io
 from metrics.level_analysis import generation_times, leniencies, calculate_leniency, linearities, calculate_linearity, \
     save_data, structures_used_list, level_lengths, line_distances, calculate_line_distance, backtrackings, \
-    analyze_structures, save_structures_data
+    analyze_structures, save_structures_data, structures_count_list
 from tools.render_level.render_level import render_structure
 
 # uncomment for truncated file
@@ -259,7 +260,7 @@ if __name__ == '__main__':
             start_time = time.time()
 
             try:
-                level, stats, structures_used, backtrack_count = level_generation.generate_level(
+                level, stats, structures_used, backtrack_count, used_stuctures = level_generation.generate_level(
                     structures, g_s, g_f, opt.min_structures)
             except EnvironmentError:
                 print("Environmet Error!")
@@ -277,10 +278,17 @@ if __name__ == '__main__':
             backtrackings.append(backtrack_count)
 
             structures_used_list.append(structures_used)
+            structures_count_list.append(len(used_stuctures))
+
             level_lengths.append(len(level_data[0]))
 
             level_path = f"{levels_output_dir}/level_{n}.txt"
             level.save_as_level(level_path)
+
+            structures_json = json.dumps([s.id for s in used_stuctures])
+            print(f"structures used: {structures_json}")
+            with open(f"{levels_output_dir}/level_{n}_structures.json", "w") as json_file:
+                json_file.write(structures_json)
 
             if opt.render == "True":
                 print("Rendering level {}".format(n))

@@ -302,9 +302,10 @@ def generate_level(structures, g_s, g_f, minimum_count=10):
 
     generated_structure = Structure(-1)
     # print("Length: {}".format(len(level)))
+    print(f"Level generated, containing structures:\n{level}")
     for s in level:
         generated_structure.nodes.extend(s.nodes)
-    return generated_structure, usage_stats, count_substitutions, count_backtrack
+    return generated_structure, usage_stats, count_substitutions, count_backtrack, level
 
 
 def instantiate_base_level(id_structures):
