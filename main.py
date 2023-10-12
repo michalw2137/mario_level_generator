@@ -16,7 +16,7 @@ from generator import structure_matching
 from helper import io
 from metrics.level_analysis import generation_times, leniencies, calculate_leniency, linearities, calculate_linearity, \
     save_data, structures_used_list, level_lengths, line_distances, calculate_line_distance, backtrackings, \
-    analyze_structures, save_structures_data, structures_count_list
+    analyze_structures, save_structures_data, structures_count_list, used_structures_list
 from tools.render_level.render_level import render_structure
 
 # uncomment for truncated file
@@ -279,16 +279,11 @@ if __name__ == '__main__':
 
             structures_used_list.append(structures_used)
             structures_count_list.append(len(used_stuctures))
-
             level_lengths.append(len(level_data[0]))
+            used_structures_list.append([s.id for s in used_stuctures])
 
             level_path = f"{levels_output_dir}/level_{n}.txt"
             level.save_as_level(level_path)
-
-            structures_json = json.dumps([s.id for s in used_stuctures])
-            print(f"structures used: {structures_json}")
-            with open(f"{levels_output_dir}/level_{n}_structures.json", "w") as json_file:
-                json_file.write(structures_json)
 
             if opt.render == "True":
                 print("Rendering level {}".format(n))

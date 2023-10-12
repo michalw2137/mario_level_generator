@@ -216,10 +216,10 @@ structures_used_list = []
 structures_count_list = []
 backtrackings = []
 level_lengths = []
-
+used_structures_list = []
 
 df = pd.DataFrame(
-    columns=['time', 'leniency', 'linearity', 'line_distance', 'structures_used', 'structures_count', 'backtrackings', 'level_length'])
+    columns=['time', 'leniency', 'linearity', 'line_distance', 'structures_used', 'structures_count', 'backtrackings', 'level_length', 'used_structures'])
 
 
 structures_frame = pd.DataFrame(
@@ -235,6 +235,7 @@ def save_data(path: str):
     df['structures_count'] = structures_count_list
     df['backtrackings'] = backtrackings
     df['level_length'] = level_lengths
+    df['used_structures'] = used_structures_list
 
     df.to_csv(f'{path}/data_collected.csv', index=False)
 

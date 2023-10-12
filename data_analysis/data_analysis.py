@@ -41,10 +41,13 @@ def analyze_data(data_frame, parameter_value):
 
     # Plot histograms for each column
     for i, column in enumerate(data_frame.columns):
-        axes[i].hist(data_frame[column])
-        axes[i].set_title(f'Histogram of {parameter_value}: {column}')
-        axes[i].set_xlabel(column)
-        axes[i].set_ylabel('Frequency')
+        try:
+            axes[i].hist(data_frame[column])
+            axes[i].set_title(f'Histogram of {parameter_value}: {column}')
+            axes[i].set_xlabel(column)
+            axes[i].set_ylabel('Frequency')
+        except Exception as e:
+            print(f"{column} out of bands: ", e)
 
     # Adjust spacing between subplots
     fig.tight_layout()
@@ -75,12 +78,18 @@ directories = [name for name in os.listdir(output_directory) if os.path.isdir(os
 if __name__ == "__main__":
     for directory in directories:
         try:
+            print(f"Analyzing {directory}")
+
             dataframe, structures_df = load_csv_into_dataframe(directory)
 
             n_parameter = directory.split("_")[3]
             generation_time = directory.split("_")[10]
 
             analyze_data(dataframe, f"n={n_parameter} [{generation_time}]")
+            print("Analyzed levels")
             analyze_data(structures_df, "structures")
-        except:
-            print("no data file")
+            print("Analyzed structures")
+            print(f"Succesfully analyzed {directory}")
+        except Exception as e:
+            print(e)
+            print(f"no data file in {directory}")
