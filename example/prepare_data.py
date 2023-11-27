@@ -10,7 +10,7 @@ if __name__ == "__main__":
         n = file.split('_')[3]
         print(n, file)
 
-        run_results = pd.read_csv("data/results.csv")
+        run_results = pd.read_csv(f"data/n{n}.csv")
         metrics = pd.read_csv(levels_data_dir + file)
 
         prepared_linearity = pd.DataFrame(columns=['linearity', 'leniency', 'result'])
@@ -24,5 +24,5 @@ if __name__ == "__main__":
         prepared_line_distance['leniency'] = metrics['leniency']
         prepared_line_distance['result'] = run_results['result']
 
-        prepared_linearity.to_csv(f"linearity/csv/n{n}.csv", index=False)
-        prepared_line_distance.to_csv(f"line_distance/csv/n{n}.csv", index=False)
+        prepared_linearity.to_csv(f"linearity/csv/new_n{n}.csv", index=False)
+        prepared_line_distance.to_csv(f"line_distance/csv/new_n{n}.csv", index=False)

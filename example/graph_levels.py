@@ -6,20 +6,23 @@ from sklearn import preprocessing
 
 def plot_based_on_result(x, y, color='#1f77b4', shape='.'):
     print("\tnormalizing values")
-    normalised_linearities = preprocessing.normalize(np.array([x]), norm='max')
-    normalised_leniencies = preprocessing.normalize(np.array([y]), norm='max')
 
-    x = normalised_linearities[0]
-    y = normalised_leniencies[0]
+    if len(x) > 0:
+        normalised_linearities = preprocessing.normalize(np.array([x]), norm='max')
+        x = normalised_linearities[0]
+
+    if len(y) > 0:
+        normalised_leniencies = preprocessing.normalize(np.array([y]), norm='max')
+        y = normalised_leniencies[0]
 
     print("\tplotting succesful values")
     plt.plot(0, 0, 'w.')
     plt.plot(1, 1, 'w.')
-    plt.plot(normalised_linearities, normalised_leniencies, shape, c=color)
+    plt.plot(x, y, shape, c=color)
 
 
 def graph(directory: str, n: int):
-    csv_path = f"{directory}/csv/n{n}.csv"
+    csv_path = f"{directory}/csv/new_n{n}.csv"
     print("\treading " + csv_path)
     data = pd.read_csv(csv_path)
 
@@ -40,7 +43,7 @@ def graph(directory: str, n: int):
     plt.legend(labels=[f"n {n}", f"failed: {len(failed_levels)}", f"completed: {len(successful_levels)}"])
 
     print("\tsaving plot")
-    plt.savefig(f"{directory}/plot/n{n}.png")
+    plt.savefig(f"{directory}/plot/new_n{n}.png")
     plt.close()
 
 
